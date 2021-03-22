@@ -53,5 +53,17 @@ describe Astronaut, type: :model do
       expect(@buzz.ordered_missions_by_title).to eq(buzz_expected)
       expect(@trevor.ordered_missions_by_title).to eq(trevor_expected)
     end
+
+    it 'total_spacetime' do
+      neil_expected = @neil.missions.sum do |mission|
+        mission.time_in_space
+      end
+      buzz_expected = @buzz.missions.sum do |mission|
+        mission.time_in_space
+      end
+
+      expect(@neil.total_spacetime).to eq(neil_expected)
+      expect(@buzz.total_spacetime).to eq(buzz_expected)
+    end
   end
 end

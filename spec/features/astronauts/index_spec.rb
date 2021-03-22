@@ -80,4 +80,11 @@ RSpec.describe 'astronauts index page', type: :feature do
       expect(@mission3.title).to appear_before(@mission4.title)
     end
   end
+
+  it 'astronauts display their total time in space' do
+    within("#astronaut-#{@neil.id}") do
+      expect(page).to have_content(@neil.total_spacetime)
+      expect(page).to_not have_content(@buzz.total_spacetime)
+    end
+  end
 end
