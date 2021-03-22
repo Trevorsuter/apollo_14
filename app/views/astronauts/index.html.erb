@@ -9,6 +9,12 @@
         <h5><%= astronaut.name %></h5>
         <p>Age: <%= astronaut.age %></p>
         <p>Job: <%= astronaut.job %></p>
+        <div id="astronaut-<%= astronaut.id %>-missions">
+          <% astronaut.ordered_missions_by_title.each do |mission| %>
+            <b>Missions:</b>
+            <%= mission.title %>
+          <% end %>
+        </div>
       </div><hr>
     <% end %>
   </div><hr>
